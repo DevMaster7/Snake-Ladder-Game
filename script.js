@@ -18,11 +18,11 @@ function sound() {
     mainsound.play();
 }
 
-mainCont.addEventListener("click", function () {
-    setTimeout(() => {
-        sound()
-    }, 100);
-})
+// mainCont.addEventListener("click", function () {
+setTimeout(() => {
+    sound()
+}, 100);
+// })
 
 let flag = 0;
 von.addEventListener("click", function () {
