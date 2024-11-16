@@ -5,96 +5,34 @@ let mainBtn = document.getElementById("mainbtn")
 let secBtn = document.getElementById("secbtn")
 let cross = document.getElementById("cross")
 let diceSound = document.getElementById("dicesound")
-let mainsound = document.getElementById("bgsound")
-let von = document.getElementById("volumeon")
-let vof = document.getElementById("volumeof")
-let u1 = document.getElementById("user1")
-let u2 = document.getElementById("user2")
-// document.addEventListener('DOMContentLoaded', function () {
-//     window.addEventListener('beforeunload', function () {
-//     });
-// });
-function sound() {
-    mainsound.play();
-}
-
-// mainCont.addEventListener("click", function () {
-setTimeout(() => {
-    sound()
-}, 100);
-// })
+let mainsound = new Audio("assets/BGsound.mp3")
+let volume = document.getElementById("vol")
+// let u1 = document.getElementById("user1")
+// let u2 = document.getElementById("user2")
+// let box1 = document.getElementById("box1")
 
 let flag = 0;
-von.addEventListener("click", function () {
+volume.addEventListener("click", function () {
     if (flag == 0) {
-        vof.style.display = "flex"
-        von.style.display = "none"
+        volume.src = "assets/off.png"
         mainsound.pause()
         flag = 1
     }
-})
-vof.addEventListener("click", function () {
-    if (flag == 1) {
-        von.style.display = "flex"
-        vof.style.display = "none"
+    else if (flag == 1) {
+        volume.src = "assets/on.png"
         mainsound.play()
         flag = 0
     }
 })
+mainsound.play()
 
+mainBtn.addEventListener("click", function () {
+    centerCont.style.display = "flex"
+})
 
-function mainGame() {
-    mainCont.style.display = "none"
+cross.addEventListener("click", function () {
     centerCont.style.display = "none"
-    secCont.style.display = "flex"
-    mainsound.pause()
-
-    function rollDice1() {
-        const dice = [...document.querySelectorAll(".die-list1")];
-        dice.forEach(die => {
-            toggleClasses(die);
-            die.dataset.roll = getRandomNumber(1, 6);
-        });
-    }
-    function toggleClasses(die) {
-        die.classList.toggle("odd-roll");
-        die.classList.toggle("even-roll");
-    }
-    function getRandomNumber(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        let rdigit = Math.floor(Math.random() * (max - min + 1)) + min;
-        // u1r
-        console.log("Value of " + rdigit);
-    }
-    document.getElementById("roll-button1").addEventListener("click", function () {
-        rollDice1()
-        diceSound.play()
-    });
-
-    function rollDice2() {
-        const dice = [...document.querySelectorAll(".die-list2")];
-        dice.forEach(die => {
-            toggleClasses(die);
-            die.dataset.roll = getRandomNumber(1, 6);
-        });
-    }
-    function toggleClasses(die) {
-        die.classList.toggle("odd-roll");
-        die.classList.toggle("even-roll");
-    }
-    function getRandomNumber(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    document.getElementById("roll-button2").addEventListener("click", function () {
-        rollDice2()
-        diceSound.play()
-    });
-
-
-}
+})
 
 function applyColorUser1() {
     let radios = document.getElementsByName('color1');
@@ -127,7 +65,7 @@ function applyColorUser2() {
     if (selectedColor !== null) {
         user2.style.color = selectedColor;
         u2 = 1
-
+        
     } else {
         alert('Please Select a Color For CPU');
     }
@@ -136,7 +74,7 @@ function applyColorUser2() {
 function checkColors() {
     var user1Color = document.querySelector('input[name="color1"]:checked').value;
     var user2Color = document.querySelector('input[name="color2"]:checked').value;
-
+    
     if (user1Color === user2Color) {
         alert("Both Users Cannot Select The Same Color.\nPlease Choose Different Colors.");
     }
@@ -154,17 +92,71 @@ function con() {
     }
 }
 
-mainBtn.addEventListener("click", function () {
-    centerCont.style.display = "flex"
-})
-
-cross.addEventListener("click", function () {
-    centerCont.style.display = "none"
-})
-
 secBtn.addEventListener("click", function () {
     checkColors()
     applyColorUser1()
     applyColorUser2()
     con()
 })
+
+function mainGame() {
+    mainCont.style.display = "none"
+    centerCont.style.display = "none"
+    secCont.style.display = "flex"
+    mainsound.pause()
+}
+
+
+
+// function rollDice1() {
+    //     const dice = [...document.querySelectorAll(".die-list1")];
+    //     dice.forEach(die => {
+        //         toggleClasses(die);
+        //         die.dataset.roll = getRandomNumber(1, 6);
+        //     });
+        
+    //     // let u3 = document.createElement("i")
+    //     // u3.className = "fa-solid fa-chess-pawn"
+    //     // u3.id = "userr1"
+    //     // u3.style.color = 
+    //     // box1.appendChild(u3)
+    //     // console.log("Muneeb");
+    // }
+    // function toggleClasses(die) {
+    //     die.classList.toggle("odd-roll");
+    //     die.classList.toggle("even-roll");
+    // }
+    // function getRandomNumber(min, max) {
+    //     min = Math.ceil(min);
+    //     max = Math.floor(max);
+    //     let rdigit = Math.floor(Math.random() * (max - min + 1)) + min;
+    //     // u1r
+    //     console.log("Value of " + rdigit);
+    // }
+    // document.getElementById("roll-button1").addEventListener("click", function () {
+    //     rollDice1()
+    //     diceSound.play()
+    //     // let u = document.createElement("user1")
+    // });
+    
+    // function rollDice2() {
+    //     const dice = [...document.querySelectorAll(".die-list2")];
+    //     dice.forEach(die => {
+    //         toggleClasses(die);
+    //         die.dataset.roll = getRandomNumber(1, 6);
+    //     });
+    // }
+    // function toggleClasses(die) {
+    //     die.classList.toggle("odd-roll");
+    //     die.classList.toggle("even-roll");
+    // }
+    // function getRandomNumber(min, max) {
+    //     min = Math.ceil(min);
+    //     max = Math.floor(max);
+    //     return Math.floor(Math.random() * (max - min + 1)) + min;
+    // }
+    // document.getElementById("roll-button2").addEventListener("click", function () {
+    //     rollDice2()
+    //     diceSound.play()
+
+    // });

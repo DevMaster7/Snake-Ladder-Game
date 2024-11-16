@@ -19,8 +19,8 @@ body {
 .container1 {
     width: 100%;
     height: 100%;
-    display: flex;
-    /* display: none; */
+    /* display: flex; */
+    display: none;
     justify-content: space-evenly;
     align-items: center;
     user-select: none;
@@ -90,17 +90,15 @@ body {
 }
 
 .volume {
-    width: 100%;
-    font-size: 2.5vw;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: end;
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
     position: fixed;
     bottom: 4vh;
     right: 2vw;
     z-index: 9;
     cursor: pointer;
+    -webkit-user-drag: none;
 }
 
 .img1 {
@@ -176,8 +174,8 @@ body {
 .container2 {
     width: 100%;
     height: 100%;
-    /* display: flex; */
-    display: none;
+    display: flex;
+    /* display: none; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -201,6 +199,49 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+}
+
+.dicevid{
+    width: 7vw;
+    height: 7vw;   
+}
+
+.face{
+    width: 4.5vw;
+    height: 4.5vw;
+    background-color: #f9f9f9;
+}
+.face1{}
+.face2{
+    display: none;
+}
+.face3{
+    display: none;
+}
+.face4{
+    display: none;
+}
+.face5{
+    display: none;
+}
+.face6{
+    display: none;
+}
+
+button {
+    align-self: center;
+    background-color: #efefef;
+    border: none;
+    color: #333;
+    font-size: 1.25rem;
+    font-weight: 700;
+    justify-self: center;
+    padding: 0.5rem 1rem;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .tab {
@@ -216,6 +257,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-size: 2vw;
     background-color: rgb(255, 255, 104);
     transform: scaleY(-1);
@@ -228,14 +270,7 @@ body {
     align-items: center;
 }
 
-.dice {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.die-list1 {
+/* .die-list1 {
     display: grid;
     align-items: center;
     justify-items: center;
@@ -296,9 +331,9 @@ body {
     height: 1rem;
     justify-self: center;
     width: 1rem;
-}
+} */
 
-.even-roll[data-roll="1"] {
+/* .even-roll[data-roll="1"] {
     transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
 }
 
@@ -452,19 +487,11 @@ body {
 
 [data-side="6"] .dot:nth-of-type(6) {
     grid-area: nine;
-}
+} */
 
-button {
-    align-self: center;
-    background-color: #efefef;
-    border: none;
-    color: #333;
-    font-size: 1.25rem;
-    font-weight: 700;
-    justify-self: center;
-    padding: 0.5rem 1rem;
+/* #userr1{
+    width: 2vw;
+    height: 2vw;
+    background-color: red;
 }
-
-button:hover {
-    cursor: pointer;
-}
+ */
