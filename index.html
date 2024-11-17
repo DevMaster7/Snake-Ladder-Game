@@ -90,6 +90,10 @@
                     </form>
                 </div>
             </div>
+            <div id="err" class="error">
+                Both Users Cannot Choose The Same Color <br>
+                Please Choose Different Colors
+            </div>
             <button id="secbtn" class="button">Start The Game</button>
         </div>
     </div>
@@ -97,77 +101,281 @@
         <img src="assets/Heading-img.png"
             style="width: 26vw; height: 15vh; border-radius: 10px;-webkit-user-drag: none;" alt="">
         <div id="contoftable" class="contoftab">
-            <div id="conofdiceu2" class="dicecon">
-                <div class="face face1" id="1face1"></div>
-                <div class="face face2" id="1face2"></div>
-                <div class="face face3" id="1face3"></div>
-                <div class="face face4" id="1face4"></div>
-                <div class="face face5" id="1face5"></div>
-                <div class="face face6" id="1face6"></div>
+            <div id="conofdice1" class="dicecon">
+                <div class="face face1" id="1face1">
+                    <div class="dot"></div>
+                </div>
+                <div class="face face2" id="1face2">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face3" id="1face3">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face4" id="1face4">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face5" id="1face5">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face6" id="1face6">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
                 <video class="dicevid" id="dicevid1" src="assets/Dice.webm"></video>
-                <button type="button" id="roll-button1">Roll Dice</button>
+                <button class="rollbtn" type="button" id="roll-button1">Roll Dice</button>
             </div>
             <div class="tab">
-                <div id="box1" class="boxs">1</div>
-                <div id="box2" class="boxs">2</div>
-                <div id="box3" class="boxs">3</div>
-                <div id="box4" class="boxs">4</div>
-                <div id="box5" class="boxs">5</div>
-                <div id="box6" class="boxs">6</div>
-                <div id="box7" class="boxs">7</div>
-                <div id="box8" class="boxs">8</div>
-                <div id="box9" class="boxs">9</div>
-                <div id="box10" class="boxs">10</div>
-                <div id="box11" class="boxs">11</div>
-                <div id="box12" class="boxs">12</div>
-                <div id="box13" class="boxs">13</div>
-                <div id="box14" class="boxs">14</div>
-                <div id="box15" class="boxs">15</div>
-                <div id="box16" class="boxs">16</div>
-                <div id="box17" class="boxs">17</div>
-                <div id="box18" class="boxs">18</div>
-                <div id="box19" class="boxs">19</div>
-                <div id="box20" class="boxs">20</div>
-                <div id="box21" class="boxs">21</div>
-                <div id="box22" class="boxs">22</div>
-                <div id="box23" class="boxs">23</div>
-                <div id="box24" class="boxs">24</div>
-                <div id="box25" class="boxs">25</div>
-                <div id="box26" class="boxs">26</div>
-                <div id="box27" class="boxs">27</div>
-                <div id="box28" class="boxs">28</div>
-                <div id="box29" class="boxs">29</div>
-                <div id="box30" class="boxs">30</div>
-                <div id="box31" class="boxs">31</div>
-                <div id="box32" class="boxs">32</div>
-                <div id="box33" class="boxs">33</div>
-                <div id="box34" class="boxs">34</div>
-                <div id="box35" class="boxs">35</div>
-                <div id="box36" class="boxs">36</div>
-                <div id="box37" class="boxs">37</div>
-                <div id="box38" class="boxs">38</div>
-                <div id="box39" class="boxs">39</div>
-                <div id="box40" class="boxs">40</div>
-                <div id="box41" class="boxs">41</div>
-                <div id="box42" class="boxs">42</div>
-                <div id="box43" class="boxs">43</div>
-                <div id="box44" class="boxs">44</div>
-                <div id="box45" class="boxs">45</div>
-                <div id="box46" class="boxs">46</div>
-                <div id="box47" class="boxs">47</div>
-                <div id="box48" class="boxs">48</div>
-                <div id="box49" class="boxs">49</div>
-                <div id="box50" class="boxs">50</div>
+                <div class="boxs">
+                    <p>1</p>
+                    <div class="gotiya" id="gotiya1"></div>
+                </div>
+                <div class="boxs">
+                    <p>2</p>
+                    <div class="gotiya" id="gotiya2"></div>
+                </div>
+                <div class="boxs">
+                    <p>3</p>
+                    <div class="gotiya" id="gotiya3"></div>
+                </div>
+                <div class="boxs">
+                    <p>4</p>
+                    <div class="gotiya" id="gotiya4"></div>
+                </div>
+                <div class="boxs">
+                    <p>5</p>
+                    <div class="gotiya" id="gotiya5"></div>
+                </div>
+                <div class="boxs">
+                    <p>6</p>
+                    <div class="gotiya" id="gotiya6"></div>
+                </div>
+                <div class="boxs">
+                    <p>7</p>
+                    <div class="gotiya" id="gotiya7"></div>
+                </div>
+                <div class="boxs">
+                    <p>8</p>
+                    <div class="gotiya" id="gotiya8"></div>
+                </div>
+                <div class="boxs">
+                    <p>9</p>
+                    <div class="gotiya" id="gotiya9"></div>
+                </div>
+                <div class="boxs">
+                    <p>10</p>
+                    <div class="gotiya" id="gotiya10"></div>
+                </div>
+                <div class="boxs">
+                    <p>11</p>
+                    <div class="gotiya" id="gotiya11"></div>
+                </div>
+                <div class="boxs">
+                    <p>12</p>
+                    <div class="gotiya" id="gotiya12"></div>
+                </div>
+                <div class="boxs">
+                    <p>13</p>
+                    <div class="gotiya" id="gotiya13"></div>
+                </div>
+                <div class="boxs">
+                    <p>14</p>
+                    <div class="gotiya" id="gotiya14"></div>
+                </div>
+                <div class="boxs">
+                    <p>15</p>
+                    <div class="gotiya" id="gotiya15"></div>
+                </div>
+                <div class="boxs">
+                    <p>16</p>
+                    <div class="gotiya" id="gotiya16"></div>
+                </div>
+                <div class="boxs">
+                    <p>17</p>
+                    <div class="gotiya" id="gotiya17"></div>
+                </div>
+                <div class="boxs">
+                    <p>18</p>
+                    <div class="gotiya" id="gotiya18"></div>
+                </div>
+                <div class="boxs">
+                    <p>19</p>
+                    <div class="gotiya" id="gotiya19"></div>
+                </div>
+                <div class="boxs">
+                    <p>20</p>
+                    <div class="gotiya" id="gotiya20"></div>
+                </div>
+                <div class="boxs">
+                    <p>21</p>
+                    <div class="gotiya" id="gotiya21"></div>
+                </div>
+                <div class="boxs">
+                    <p>22</p>
+                    <div class="gotiya" id="gotiya22"></div>
+                </div>
+                <div class="boxs">
+                    <p>23</p>
+                    <div class="gotiya" id="gotiya23"></div>
+                </div>
+                <div class="boxs">
+                    <p>24</p>
+                    <div class="gotiya" id="gotiya24"></div>
+                </div>
+                <div class="boxs">
+                    <p>25</p>
+                    <div class="gotiya" id="gotiya25"></div>
+                </div>
+                <div class="boxs">
+                    <p>26</p>
+                    <div class="gotiya" id="gotiya26"></div>
+                </div>
+                <div class="boxs">
+                    <p>27</p>
+                    <div class="gotiya" id="gotiya27"></div>
+                </div>
+                <div class="boxs">
+                    <p>28</p>
+                    <div class="gotiya" id="gotiya28"></div>
+                </div>
+                <div class="boxs">
+                    <p>29</p>
+                    <div class="gotiya" id="gotiya29"></div>
+                </div>
+                <div class="boxs">
+                    <p>30</p>
+                    <div class="gotiya" id="gotiya30"></div>
+                </div>
+                <div class="boxs">
+                    <p>31</p>
+                    <div class="gotiya" id="gotiya31"></div>
+                </div>
+                <div class="boxs">
+                    <p>32</p>
+                    <div class="gotiya" id="gotiya32"></div>
+                </div>
+                <div class="boxs">
+                    <p>33</p>
+                    <div class="gotiya" id="gotiya33"></div>
+                </div>
+                <div class="boxs">
+                    <p>34</p>
+                    <div class="gotiya" id="gotiya34"></div>
+                </div>
+                <div class="boxs">
+                    <p>35</p>
+                    <div class="gotiya" id="gotiya35"></div>
+                </div>
+                <div class="boxs">
+                    <p>36</p>
+                    <div class="gotiya" id="gotiya36"></div>
+                </div>
+                <div class="boxs">
+                    <p>37</p>
+                    <div class="gotiya" id="gotiya37"></div>
+                </div>
+                <div class="boxs">
+                    <p>38</p>
+                    <div class="gotiya" id="gotiya38"></div>
+                </div>
+                <div class="boxs">
+                    <p>39</p>
+                    <div class="gotiya" id="gotiya39"></div>
+                </div>
+                <div class="boxs">
+                    <p>40</p>
+                    <div class="gotiya" id="gotiya40"></div>
+                </div>
+                <div class="boxs">
+                    <p>41</p>
+                    <div class="gotiya" id="gotiya41"></div>
+                </div>
+                <div class="boxs">
+                    <p>42</p>
+                    <div class="gotiya" id="gotiya42"></div>
+                </div>
+                <div class="boxs">
+                    <p>43</p>
+                    <div class="gotiya" id="gotiya43"></div>
+                </div>
+                <div class="boxs">
+                    <p>44</p>
+                    <div class="gotiya" id="gotiya44"></div>
+                </div>
+                <div class="boxs">
+                    <p>45</p>
+                    <div class="gotiya" id="gotiya45"></div>
+                </div>
+                <div class="boxs">
+                    <p>46</p>
+                    <div class="gotiya" id="gotiya46"></div>
+                </div>
+                <div class="boxs">
+                    <p>47</p>
+                    <div class="gotiya" id="gotiya47"></div>
+                </div>
+                <div class="boxs">
+                    <p>48</p>
+                    <div class="gotiya" id="gotiya48"></div>
+                </div>
+                <div class="boxs">
+                    <p>49</p>
+                    <div class="gotiya" id="gotiya49"></div>
+                </div>
+                <div class="boxs">
+                    <p>50</p>
+                    <div class="gotiya" id="gotiya50"></div>
+                </div>
             </div>
-            <div id="conofdiceu2" class="dicecon">
-                <div class="face face1" id="2face1"></div>
-                <div class="face face2" id="2face2"></div>
-                <div class="face face3" id="2face3"></div>
-                <div class="face face4" id="2face4"></div>
-                <div class="face face5" id="2face5"></div>
-                <div class="face face6" id="2face6"></div>
+            <div id="conofdice2" class="dicecon">
+                <div class="face face1" id="2face1">
+                    <div class="dot"></div>
+                </div>
+                <div class="face face2" id="2face2">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face3" id="2face3">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face4" id="2face4">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face5" id="2face5">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="face face6" id="2face6">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
                 <video class="dicevid" id="dicevid2" src="assets/Dice.webm"></video>
-                <button type="button" id="roll-button2">Roll Dice</button>
+                <button class="rollbtn" type="button" id="roll-button2">Roll Dice</button>
             </div>
         </div>
         <div class="contofpices">
@@ -175,47 +383,10 @@
             <i id="user2" class="fa-solid fa-chess-pawn" style="font-size: 4vw; margin-left: 1.5vw;"></i>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>
 
 </html>
-<!-- <div class="dice">
-                    <ol class="die-list2 even-roll" data-roll="1" id="die-1">
-                        <li class="die-item" data-side="1">
-                            <span class="dot"></span>
-                        </li>
-                        <li class="die-item" data-side="2">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </li>
-                        <li class="die-item" data-side="3">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </li>
-                        <li class="die-item" data-side="4">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </li>
-                        <li class="die-item" data-side="5">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </li>
-                        <li class="die-item" data-side="6">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </li>
-                    </ol>
-                </div> -->

@@ -4,12 +4,8 @@ let secCont = document.getElementById("cont2")
 let mainBtn = document.getElementById("mainbtn")
 let secBtn = document.getElementById("secbtn")
 let cross = document.getElementById("cross")
-let diceSound = document.getElementById("dicesound")
 let mainsound = new Audio("assets/BGsound.mp3")
 let volume = document.getElementById("vol")
-// let u1 = document.getElementById("user1")
-// let u2 = document.getElementById("user2")
-// let box1 = document.getElementById("box1")
 
 let flag = 0;
 volume.addEventListener("click", function () {
@@ -34,9 +30,12 @@ cross.addEventListener("click", function () {
     centerCont.style.display = "none"
 })
 
+let u1 = 0
+let u2 = 0
+let user1 = document.getElementById("user1")
+let selectedColorGlobal1 = null
 function applyColorUser1() {
     let radios = document.getElementsByName('color1');
-    let user1 = document.getElementById("user1")
     let selectedColor = null;
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
@@ -46,15 +45,17 @@ function applyColorUser1() {
     }
     if (selectedColor !== null) {
         user1.style.color = selectedColor;
+        selectedColorGlobal1 = selectedColor
         u1 = 1
     } else {
         alert('Select a Color For YourSelf!');
     }
 }
 
+let user2 = document.getElementById("user2")
+let selectedColorGlobal2 = null
 function applyColorUser2() {
     var radioos = document.getElementsByName('color2');
-    let user2 = document.getElementById("user2")
     var selectedColor = null;
     for (var i = 0; i < radioos.length; i++) {
         if (radioos[i].checked) {
@@ -64,40 +65,47 @@ function applyColorUser2() {
     }
     if (selectedColor !== null) {
         user2.style.color = selectedColor;
+        selectedColorGlobal2 = selectedColor
         u2 = 1
-        
     } else {
         alert('Please Select a Color For CPU');
     }
 }
-
-function checkColors() {
+let err = document.getElementById("err")
+let ch = 0
+function chColors() {
     var user1Color = document.querySelector('input[name="color1"]:checked').value;
     var user2Color = document.querySelector('input[name="color2"]:checked').value;
-    
     if (user1Color === user2Color) {
-        alert("Both Users Cannot Select The Same Color.\nPlease Choose Different Colors.");
+        err.style.display = "flex"
+        setTimeout(() => {
+            err.style.display = "none"
+        }, 1000);
     }
     else {
-        check = 1
+        ch = 1
     }
 }
 
 function con() {
-    if (check == 1 && u1 == 1 && u2 == 1) {
+    if (ch == 1 && u1 == 1 && u2 == 1) {
         mainGame()
-    }
-    else {
-        alert("Check Again")
     }
 }
 
 secBtn.addEventListener("click", function () {
-    checkColors()
+    chColors()
     applyColorUser1()
     applyColorUser2()
     con()
 })
+
+// Starting Page Complete
+
+let rollbtn1 = document.getElementById("roll-button1")
+let rollbtn2 = document.getElementById("roll-button2")
+let vid1 = document.getElementById("dicevid1")
+let vid2 = document.getElementById("dicevid2")
 
 function mainGame() {
     mainCont.style.display = "none"
@@ -106,57 +114,95 @@ function mainGame() {
     mainsound.pause()
 }
 
+let face11 = document.getElementById("1face1")
+let face12 = document.getElementById("1face2")
+let face13 = document.getElementById("1face3")
+let face14 = document.getElementById("1face4")
+let face15 = document.getElementById("1face5")
+let face16 = document.getElementById("1face6")
+let faces1 = [face11, face12, face13, face14, face15, face16]
+import boxes from "./boxes.js"
+let box1 = document.getElementById("gotiya1")
 
+let open1 = 0
+rollbtn1.addEventListener("click", function () {
+    vid1.play()
+    vid1.style.display = 'flex'
+    vid2.style.display = "none"
+    rollbtn2.style.display = "none"
+    rollbtn1.style.display = "none"
+    let num1 = Math.floor(Math.random() * 6);
+    let newnum1 = num1 + 1
+    console.log(newnum1);
+    setTimeout(() => {
+        faces1[num1].style.display = 'grid'
+        vid1.style.display = 'none'
+        if ((open1 == 0 && newnum1 == 1) || (open1 == 0 && newnum1 == 6)) {
+            console.log("Hello:)");
+            user1.style.display = "none"
+            let newele1 = document.createElement("div")
+            newele1.className = "fa-solid fa-chess-pawn"
+            newele1.style.marginBottom = ".5vw"
+            newele1.style.color = selectedColorGlobal1
+            boxes[1 - 1].appendChild(newele1)
+            open1 = 1
+        }
+        setTimeout(() => {
+            vid2.style.display = "flex"
+            rollbtn2.style.display = "flex"
+            vid1.style.display = "none"
+            rollbtn1.style.display = "none"
+            faces1[num1].style.display = "none"
+        }, 1500);
+    }, 999);
+})
 
-// function rollDice1() {
-    //     const dice = [...document.querySelectorAll(".die-list1")];
-    //     dice.forEach(die => {
-        //         toggleClasses(die);
-        //         die.dataset.roll = getRandomNumber(1, 6);
-        //     });
-        
-    //     // let u3 = document.createElement("i")
-    //     // u3.className = "fa-solid fa-chess-pawn"
-    //     // u3.id = "userr1"
-    //     // u3.style.color = 
-    //     // box1.appendChild(u3)
-    //     // console.log("Muneeb");
-    // }
-    // function toggleClasses(die) {
-    //     die.classList.toggle("odd-roll");
-    //     die.classList.toggle("even-roll");
-    // }
-    // function getRandomNumber(min, max) {
-    //     min = Math.ceil(min);
-    //     max = Math.floor(max);
-    //     let rdigit = Math.floor(Math.random() * (max - min + 1)) + min;
-    //     // u1r
-    //     console.log("Value of " + rdigit);
-    // }
-    // document.getElementById("roll-button1").addEventListener("click", function () {
-    //     rollDice1()
-    //     diceSound.play()
-    //     // let u = document.createElement("user1")
-    // });
-    
-    // function rollDice2() {
-    //     const dice = [...document.querySelectorAll(".die-list2")];
-    //     dice.forEach(die => {
-    //         toggleClasses(die);
-    //         die.dataset.roll = getRandomNumber(1, 6);
-    //     });
-    // }
-    // function toggleClasses(die) {
-    //     die.classList.toggle("odd-roll");
-    //     die.classList.toggle("even-roll");
-    // }
-    // function getRandomNumber(min, max) {
-    //     min = Math.ceil(min);
-    //     max = Math.floor(max);
-    //     return Math.floor(Math.random() * (max - min + 1)) + min;
-    // }
-    // document.getElementById("roll-button2").addEventListener("click", function () {
-    //     rollDice2()
-    //     diceSound.play()
+let face21 = document.getElementById("2face1")
+let face22 = document.getElementById("2face2")
+let face23 = document.getElementById("2face3")
+let face24 = document.getElementById("2face4")
+let face25 = document.getElementById("2face5")
+let face26 = document.getElementById("2face6")
+let faces2 = [face21, face22, face23, face24, face25, face26]
 
-    // });
+let open2 = 0
+rollbtn2.addEventListener("click", function () {
+    vid2.play()
+    vid2.style.display = 'flex'
+    vid1.style.display = "none"
+    rollbtn1.style.display = "none"
+    rollbtn2.style.display = "none"
+    let num2 = Math.floor(Math.random() * 6);
+    let newnum2 = num2 + 1
+    console.log(newnum2);
+    setTimeout(() => {
+        faces2[num2].style.display = 'grid'
+        vid2.style.display = 'none'
+        if ((open2 == 0 && newnum2 == 1) || (open2 == 0 && newnum2 == 6)) {
+            console.log("Hello:)");
+            user2.style.display = "none"
+            let newele2 = document.createElement("div")
+            newele2.className = "fa-solid fa-chess-pawn"
+            newele2.style.marginBottom = ".5vw"
+            newele2.style.color = selectedColorGlobal2
+            boxes[1 - 1].appendChild(newele2)
+            open2 = 1
+        }
+        setTimeout(() => {
+            vid1.style.display = "flex"
+            rollbtn1.style.display = "flex"
+            vid2.style.display = "none"
+            rollbtn2.style.display = "none"
+            faces2[num2].style.display = "none"
+        }, 1500);
+    }, 999);
+})
+
+let container = document.getElementById("cont2")
+let gg = 0
+setInterval(() => {
+    if (open1 == 1 && open2 == 1 && gg == 0) {
+        container.style.paddingBottom = "4vw"
+        gg = 1
+    }
+}, 10);
