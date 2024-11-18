@@ -401,35 +401,22 @@ body {
     font-size: 2vw;
     border-radius: .5vw;
     background: linear-gradient(45deg, rgba(255, 201, 75, 0.5), rgba(255, 142, 72, 0.5), rgba(255, 65, 113, 0.5), rgba(255, 55, 178, 0.5));
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(5vw);
     transform: scaleY(-1);
     position: relative;
 }
 
-.box50::after {
-    content: "";
+.inn{
     position: fixed;
-    top: -0.65vw;
-    left: -0.70vw;
+    top: 0vw;
+    left: 0vw;
     width: 5vw;
-    height: 11vh;
-    border-radius: .5vw;
-    margin: 0.7vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    backdrop-filter: blur(.4vw);
-    opacity: 0.5;
-    z-index: 1;
-    background: url(assets/Celebrate.png);
-}
-
-.gotiya {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    height: 14vh;
+    border-radius: 0.5vw;
+    border-bottom-left-radius: 3vw;
+    backdrop-filter: blur(0px);
+    opacity: 0.7;
+    z-index: 0;
 }
 
 p {
@@ -441,6 +428,27 @@ p {
     z-index: 2;
     color: rgb(0, 0, 0);
     text-align: center;
+}
+
+.gotiya {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#gotiya50{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    border-radius: .5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .contofpices {

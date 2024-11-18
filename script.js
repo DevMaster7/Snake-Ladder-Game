@@ -20,7 +20,7 @@ volume.addEventListener("click", function () {
         flag = 0
     }
 })
-mainsound.play()
+// mainsound.play()
 
 mainBtn.addEventListener("click", function () {
     centerCont.style.display = "flex"
