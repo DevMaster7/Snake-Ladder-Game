@@ -195,6 +195,7 @@ rollbtn1.addEventListener("click", function () {
             console.log(newnum1);
             console.log(boxes[newnum1]);
             boxes[dany1].appendChild(newele1)
+            console.log(dany1)
         }
         previousEle1 = newele1
         setTimeout(() => {
