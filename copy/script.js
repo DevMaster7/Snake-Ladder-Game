@@ -32,8 +32,6 @@ cross.addEventListener("click", function () {
     centerCont.style.display = "none"
 })
 
-let u1 = 0
-let u2 = 0
 let user1 = document.getElementById("user1")
 let selectedColorGlobal1 = null
 function applyColorUser1() {
@@ -48,9 +46,6 @@ function applyColorUser1() {
     if (selectedColor !== null) {
         user1.style.color = selectedColor;
         selectedColorGlobal1 = selectedColor
-        u1 = 1
-    } else {
-        alert('Select a Color For YourSelf!');
     }
     let cir1 = document.getElementById("cir1")
     cir1.style.backgroundColor = selectedColorGlobal1
@@ -70,31 +65,12 @@ function applyColorUser2() {
     if (selectedColor !== null) {
         user2.style.color = selectedColor;
         selectedColorGlobal2 = selectedColor
-        u2 = 1
-    } else {
-        alert('Please Select a Color For CPU');
+        // selectedColorGlobal2 = "red"
     }
     let cir2 = document.getElementById("cir2")
     cir2.style.backgroundColor = selectedColorGlobal2
 }
-let ch = 0
-let err1 = document.getElementById("err1")
-function chColors() {
-    var user1Color = document.querySelector('input[name="color1"]:checked').value;
-    var user2Color = document.querySelector('input[name="color2"]:checked').value;
-    if (user1Color === user2Color) {
-        err1.style.display = "flex"
-        setTimeout(() => {
-            err1.style.display = "none"
-        }, 1000);
-        // ch == 2
-    }
-    else {
-        ch = 1
-    }
-}
 
-let ccc = 0
 function usern() {
     let un1 = document.getElementById("un1").value
     let un2 = document.getElementById("un2").value
@@ -102,55 +78,72 @@ function usern() {
     play2.innerText = un2
 }
 
+let err1 = document.getElementById("err1")
 let err2 = document.getElementById("err2")
-function eroo2() {
-    err2.style.display = "flex"
-    setTimeout(() => {
-        err2.style.display = "none"
-    }, 1000);
-}
 let err3 = document.getElementById("err3")
-function eroo1() {
-    err3.style.display = "flex"
-    setTimeout(() => {
-        err3.style.display = "none"
-    }, 1000);
-
-}
-let aa = 0
-let bb = 0
-function nameplate() {
-    if (un1.value == "" || un2.value == "") {
-        eroo1()
-        // aa = 2
-    }
-    else if (un1.value == un2.value) {
-        eroo2()
-        // bb = 2
+let err4 = document.getElementById("err4")
+let err5 = document.getElementById("err5")
+function valid() {
+    let user1Color = document.querySelector('input[name="color1"]:checked');
+    let user2Color = document.querySelector('input[name="color2"]:checked');
+    let un1 = document.getElementById("un1").value.trim();
+    let un2 = document.getElementById("un2").value.trim();
+    if (!user1Color || !user2Color || !un1 || !un2 || un1 === un2 || user1Color.value == user2Color.value) {
+        if ((!user1Color || !user2Color) && (!un1 || !un2)) {
+            err1.style.display = "flex"
+            setTimeout(() => {
+                err1.style.display = "none"
+            }, 1000);
+        }
+        else if ((user1Color || user2Color) && (!un1 || !un2)) {
+            err2.style.display = "flex"
+            setTimeout(() => {
+                err2.style.display = "none"
+            }, 1000);
+        }
+        else if ((!user1Color || !user2Color) && (un1 || un2)) {
+            err3.style.display = "flex"
+            setTimeout(() => {
+                err3.style.display = "none"
+            }, 1000);
+        }
+        else if (un1 === un2 && user1Color.value === user2Color.value) {
+            err4.style.display = "flex"
+            setTimeout(() => {
+                err4.style.display = "none"
+            }, 1000);
+        }
+        else if (un1 === un2) {
+            err5.style.display = "flex"
+            setTimeout(() => {
+                err5.style.display = "none"
+            }, 1000);
+        }
+        else if (user1Color.value === user2Color.value) {
+            err6.style.display = "flex"
+            setTimeout(() => {
+                err6.style.display = "none"
+            }, 1000);
+        }
+        return false
     }
     else {
-        ccc = 1
+        return true
     }
-    // if ((ch==2&&aa==2)||(ch == 2&&bb==2)) {
-    //     alert("NOOOOOO")
-    // }
 }
 
-function con() {
-    if (ch == 1 && u1 == 1 && u2 == 1 && ccc == 1) {
+secBtn.addEventListener("click", function () {
+    if (valid()) {
+        applyColorUser1()
+        applyColorUser2()
+        usern()
         mainGame()
     }
-}
-secBtn.addEventListener("click", function () {
-    usern()
-    chColors()
-    applyColorUser1()
-    applyColorUser2()
-    nameplate()
-    con()
 })
 
+
 // Starting Page Complete
+
 
 let rollbtn1 = document.getElementById("roll-button1")
 let rollbtn2 = document.getElementById("roll-button2")
@@ -176,7 +169,6 @@ let open1 = 0
 let dany1 = 0
 let previousEle1 = null
 rollbtn1.addEventListener("click", function () {
-
     vid1.play()
     vid1.style.display = 'flex'
     vid2.style.display = "none"
@@ -201,9 +193,17 @@ rollbtn1.addEventListener("click", function () {
             if (previousEle1 && previousEle1.parentNode) {
                 previousEle1.parentNode.removeChild(previousEle1);
             }
-            console.log(newnum1);
-            console.log(boxes[newnum1]);
             boxes[dany1].appendChild(newele1)
+            console.log(newnum1)
+            console.log(dany1)
+            // if (dany1 == 5) {
+            //     dany1 += 10
+            //     boxes[dany1].appendChild(newele1)
+            // }
+            // if (dany1 == 20) {
+            //     dany1 += 18
+            //     boxes[dany1].appendChild(newele1)
+            // }
         }
         previousEle1 = newele1
         setTimeout(() => {
@@ -266,11 +266,11 @@ rollbtn2.addEventListener("click", function () {
     }, 999);
 })
 
-let gg = 0
-let container = document.getElementById("cont2")
-setInterval(() => {
-    if (open1 == 1 && open2 == 1 && gg == 0) {
-        container.style.paddingBottom = "4vw"
-        gg = 1
-    }
-}, 10);
+// let gg = 0
+// let container = document.getElementById("cont2")
+// setInterval(() => {
+//     if (open1 == 1 && open2 == 1 && gg == 0) {
+//         container.style.paddingBottom = "4vw"
+//         gg = 1
+//     }
+// }, 10);

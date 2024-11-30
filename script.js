@@ -106,7 +106,7 @@ function valid() {
                 err3.style.display = "none"
             }, 1000);
         }
-        else if (un1 === un2&&user1Color.value === user2Color.value) {
+        else if (un1 === un2 && user1Color.value === user2Color.value) {
             err4.style.display = "flex"
             setTimeout(() => {
                 err4.style.display = "none"
@@ -157,6 +157,8 @@ function mainGame() {
 }
 
 import boxes from "./boxes.js"
+let laddersound = new Audio("assets/ladder.mp4")
+let snakesound = new Audio("assets/snake.mp4")
 let face11 = document.getElementById("1face1")
 let face12 = document.getElementById("1face2")
 let face13 = document.getElementById("1face3")
@@ -192,10 +194,54 @@ rollbtn1.addEventListener("click", function () {
             if (previousEle1 && previousEle1.parentNode) {
                 previousEle1.parentNode.removeChild(previousEle1);
             }
-            console.log(newnum1);
-            console.log(boxes[newnum1]);
+            let userwin1 = document.getElementById("un1").value
+            function winn1() {
+                let winn1 = 0
+                if (dany1 >= 50 && winn1 == 0) {
+                    boxes[49 + 1].appendChild(newele1)
+                    alert(userwin1 + " Winn")
+                    winn1 == 1
+                }
+            }
+            winn1()
             boxes[dany1].appendChild(newele1)
-            console.log(dany1)
+            console.log(un1 + " Get " + newnum1 + " And Now Total Number is: " + dany1);
+            function ladder1() {
+                if (dany1 == 6) {
+                    dany1 += 10
+                    boxes[dany1].appendChild(newele1)
+                }
+                else if (dany1 == 21) {
+                    dany1 += 18
+                    boxes[dany1].appendChild(newele1)
+                }
+                else if (dany1 == 35) {
+                    dany1 += 10
+                    boxes[dany1].appendChild(newele1)
+                }
+            }
+            function snake1() {
+                if (dany1 == 22) {
+                    dany1 -= 19
+                    boxes[dany1].appendChild(newele1)
+                }
+                else if (dany1 == 30) {
+                    dany1 -= 19
+                    boxes[dany1].appendChild(newele1)
+                }
+                else if (dany1 == 37) {
+                    dany1 -= 13
+                    boxes[dany1].appendChild(newele1)
+                }
+                else if (dany1 == 49) {
+                    dany1 -= 34
+                    boxes[dany1].appendChild(newele1)
+                }
+            }
+            setTimeout(() => {
+                ladder1()
+                snake1()
+            }, 1000);
         }
         previousEle1 = newele1
         setTimeout(() => {
@@ -243,9 +289,54 @@ rollbtn2.addEventListener("click", function () {
             if (previousEle2 && previousEle2.parentNode) {
                 previousEle2.parentNode.removeChild(previousEle2);
             }
-            console.log(newnum2);
-            console.log(boxes[newnum2]);
+            let userwin2 = document.getElementById("un2").value
+            function winn2() {
+                let winn2 = 0
+                if (dany2 >= 50 && winn2 == 0) {
+                    boxes[49 + 1].appendChild(newele2)
+                    alert(userwin2 + " Winn")
+                    winn2 == 1
+                }
+            }
+            winn2()
             boxes[dany2].appendChild(newele2)
+            console.log(un2 + " Get " + newnum2 + " And Now Total Number is: " + dany2);
+            function ladder2() {
+                if (dany2 == 6) {
+                    dany2 += 10
+                    boxes[dany2].appendChild(newele2)
+                }
+                else if (dany2 == 21) {
+                    dany2 += 18
+                    boxes[dany2].appendChild(newele2)
+                }
+                else if (dany2 == 35) {
+                    dany2 += 10
+                    boxes[dany2].appendChild(newele2)
+                }
+            }
+            function snake2() {
+                if (dany2 == 22) {
+                    dany2 -= 19
+                    boxes[dany2].appendChild(newele2)
+                }
+                if (dany2 == 30) {
+                    dany2 -= 19
+                    boxes[dany2].appendChild(newele2)
+                }
+                if (dany2 == 37) {
+                    dany2 -= 13
+                    boxes[dany2].appendChild(newele2)
+                }
+                if (dany2 == 49) {
+                    dany2 -= 34
+                    boxes[dany2].appendChild(newele2)
+                }
+            }
+            setTimeout(() => {
+                ladder2()
+                snake2()
+            }, 1000);
         }
         previousEle2 = newele2
         setTimeout(() => {
@@ -257,12 +348,3 @@ rollbtn2.addEventListener("click", function () {
         }, 1500);
     }, 999);
 })
-
-let gg = 0
-let container = document.getElementById("cont2")
-setInterval(() => {
-    if (open1 == 1 && open2 == 1 && gg == 0) {
-        container.style.paddingBottom = "4vw"
-        gg = 1
-    }
-}, 10);

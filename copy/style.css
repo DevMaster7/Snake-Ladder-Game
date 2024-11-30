@@ -192,7 +192,7 @@ input[type="text"]:focus {
 
 .error {
     position: fixed;
-    z-index: 100;
+    z-index: 1;
     width: 20vw;
     height: 12vw;
     align-self: center;
@@ -251,13 +251,13 @@ input[type="text"]:focus {
     flex-direction: column;
 }
 
-.nameplate{
+.nameplate {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: .5vw;
     position: fixed;
-    top: 10vw;
+    top: 30vw;
 }
 
 .data {
@@ -277,6 +277,21 @@ input[type="text"]:focus {
 .dicevid {
     width: 7vw;
     height: 7vw;
+}
+
+.phok{
+    width: 5vw;
+    height: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 10vw;
+    border-radius: 1vw;
+    background: linear-gradient(45deg, #99fa18a3, #dd12ffc7);
+    border: .01vw solid;
+    cursor: pointer;
 }
 
 .face {
@@ -475,11 +490,13 @@ p {
     text-align: center;
 }
 
-.gotiya {
+.gotiya{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+    position: fixed;
+    z-index: 4;
 }
 
 #gotiya50 {
@@ -498,7 +515,98 @@ p {
 
 .contofpices {
     width: 100%;
-    display: flex;
-    justify-content: start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
+}
+
+#user1 {
+    grid-column: 1;
+}
+
+#user2 {
+    grid-column: 1;
+}
+
+.startimg{
+    background: url(assets/start.png);
+    height: 98%;
+    -webkit-user-drag: none;
+}
+
+.start {
+    width: 8vw;
+    height: 4.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(45deg, #fa18c9d1, #fffa12d6);
+    border-radius: 1vw;
+    border: .1vw solid;
+    box-shadow: 0px 0px .4vw black;
+}
+
+.snake1 {
+    width: 7vw;
+    height: 5vw;
+    position: fixed;
+    z-index: 3;
+    top: 3vw;
+    right: -1.5vw;
+    transform: rotate(60deg);
+    -webkit-user-drag: none;
+}
+
+.snake2 {
+    width: 8vw;
+    height: 15vw;
+    position: fixed;
+    z-index: 3;
+    top: 1vw;
+    left: 2vw;
+    transform: rotate(350deg);
+    -webkit-user-drag: none;
+}
+
+.snake3 {
+    width: 20vw;
+    height: 22vw;
+    right: 1vw;
+    top: 1vw;
+    transform: rotate(5deg);
+    position: fixed;
+    z-index: 3;
+    -webkit-user-drag: none;
+}
+
+.snake4 {
+    width: 7vw;
+    height: 5vw;
+    right: 0vw;
+    top: 2vw;
+    position: fixed;
+    z-index: 3;
+    -webkit-user-drag: none;
+    transform: scaleX(-1) rotate(63deg);
+}
+
+.ladder1 {
+    width: 3vw;
+    height: 9vw;
+    position: fixed;
+    top: 1vw;
+    right: 4vw;
+    transform: rotate(43deg);
+    -webkit-user-drag: none;
+}
+
+.ladder2 {
+    width: 3vw;
+    height: 9vw;
+    position: fixed;
+    top: 1vw;
+    left: 4vw;
+    transform: rotate(320deg);
+    -webkit-user-drag: none;
 }
